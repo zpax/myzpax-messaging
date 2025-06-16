@@ -7,7 +7,7 @@ It includes both:
 - **JavaScript version**: for plain JS projects.
 - **TypeScript version**: with strong types and IDE support.
 
-Also included are usage examples for **Vue.js**
+Also included are usage examples for **Vue.js**, **React**
 
 ---
 
@@ -18,11 +18,13 @@ myzpax-messaging/
 ├── js/
 │   └── myzpax-messaging.js          # JavaScript version of the utility
 ├── ts/
-│   └── myzpax-messaging.ts          # TypeScript version with full typings
+│   └── myzpax-messaging.ts          # TypeScript version with full typings and message type docs
 ├── examples/
-│   └── vue/
-│       └── example.vue              # Sample usage in a Vue.js component
-├── README.md                        # This documentation
+│   ├── vue/
+│   │   └── example.vue              # Sample usage in a Vue.js component
+│   └── react-ts/
+│       └── App.tsx                  # Sample usage in a React (TypeScript) component
+├── README.md                        # Main documentation and usage instructions
 ```
 
 ---
@@ -89,9 +91,9 @@ addZpaxMessageListener('re_authenticated', () => {
 
 ## 4. Examples
 
-### Vue.js Example
+See [Vue.js example](./examples/vue/example.vue)
 
-See `examples/vue/example.vue` for a full component-based implementation.
+See [React with ts example](./examples/react-ts/App.tsx)
 
 ## 📚 More Detailed Documentation
 

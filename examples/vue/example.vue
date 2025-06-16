@@ -20,12 +20,12 @@ export default {
   name: 'MyzPaxExample',
   mounted() {
     // Set allowed origins
-    setTargets(['https://myzpax.com']);
+    setTargets(['https://myzpax.com', 'https://sandbox.myzpax.com']);
 
     // Listen for lock_app message from myzPAX
     addZpaxMessageListener('lock_app', () => {
       console.log('myzPAX requested lock. Preparing to lock...');
-      // perform any necessary actions that are needed before locking (e.g. Saving the state of the app)
+      // Perform any necessary actions that are needed before locking (e.g., Saving the state of the app)
       sendZpaxMessage('lock_app', {
         lockType: 'manual',
         afterReAuthAction: 'reload',
@@ -41,12 +41,17 @@ export default {
     sendInteraction() {
       sendZpaxMessage('interaction');
     },
+
     lockManually() {
       sendZpaxMessage('lock_app', {
         lockType: 'manual',
         afterReAuthAction: 'reload',
       });
     },
+
+    // Listen for last interaction and trigger lock if idle
+    // You should call this function periodically to monitor user inactivity.
+    // A typical setup is to call it on a timer (e.g., every 1–2 minutes), especially in apps where sensitive data is displayed and session locking is important.
     checkIdleAndLock() {
       const IDLE_TIMEOUT = 5 * 60 * 1000; // 5 minutes
       const unsubscribe = addZpaxMessageListener('last_interaction', (msg) => {
@@ -65,12 +70,14 @@ export default {
 
       sendZpaxMessage('last_interaction');
     },
+
     openContactForm() {
       sendZpaxMessage('open_contact_form', {
         appName: 'MyApp',
         toEmail: 'support@company.com',
       });
     },
+
     openFullView() {
       sendZpaxMessage('open_full_view');
     },
