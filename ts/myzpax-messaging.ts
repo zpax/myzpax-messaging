@@ -65,7 +65,7 @@ export type ResponseMessage = {
   re_authenticated: undefined;
 
   /**
-   * Sent by myzPAX in response to a `sendZpaxMessage('last_interaction')` call.
+   * Sent by myzPAX in response to a `sendZpaxMessage('last_interaction')` call or when the window comes back into focus.
    * Contains the last timestamp (in ms) when embedded app sent an `interaction` message.
    */
   last_interaction: number;
