@@ -66,7 +66,7 @@
  *     Payload:
  *       {
  *         lockType: 'timeout' | 'manual',         // required
- *         afterReAuthAction?: 'reload' | 'none',  // optional (default: none)
+ *         afterReAuthAction?: 'reload' | 'none',  // optional (default: reload)
  *         removeIframe?: boolean                  // optional; whether to remove the iframe after lock
  *       }
  *
