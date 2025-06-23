@@ -50,6 +50,9 @@ export type OpenContactFormMessageData = {
 export type OpenMiniPlayerMessageData = {
   /** Video URL for the mini player. */
   source: string;
+
+  /** Start time in seconds for the mini player. */
+  time?: number;
 };
 
 // ----------------------------
@@ -291,5 +294,6 @@ const openFullView = () => {
 const openMiniPlayer = () => {
   sendZpaxMessage('open_mini_player', {
     source: 'https://example.com/video.mp4',
+    time: 10,
   });
 };

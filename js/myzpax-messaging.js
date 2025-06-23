@@ -99,6 +99,7 @@
  *     Payload:
  *       {
  *         source: string // required - URL of the video source
+ *         time: number   // optional - start time in seconds
  *       }
  */
 
@@ -258,5 +259,6 @@ const openFullView = () => {
 const openMiniPlayer = () => {
   sendZpaxMessage('open_mini_player', {
     source: 'https://example.com/video.mp4',
+    time: 10,
   });
 };
