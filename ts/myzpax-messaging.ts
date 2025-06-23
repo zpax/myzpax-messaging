@@ -43,6 +43,15 @@ export type OpenContactFormMessageData = {
   toEmail: string;
 };
 
+/**
+ * Data for open_mini_player message.
+ * Sent from embedded app to myzPAX to open a mini player.
+ */
+export type OpenMiniPlayerMessageData = {
+  /** Video URL for the mini player. */
+  source: string;
+};
+
 // ----------------------------
 // Message Type Definitions
 // ----------------------------
@@ -100,6 +109,11 @@ export type RequestMessage = {
    * Ask myzPAX to show a contact form configured with provided app name and email.
    */
   open_contact_form: OpenContactFormMessageData;
+
+  /**
+   * Ask myzPAX to show a mini player configured with provided source URL.
+   */
+  open_mini_player: OpenMiniPlayerMessageData;
 };
 
 // --------------------------------
@@ -269,4 +283,13 @@ const openContactForm = () => {
  */
 const openFullView = () => {
   sendZpaxMessage('open_full_view');
+};
+
+/**
+ * Example: Request to open mini player.
+ */
+const openMiniPlayer = () => {
+  sendZpaxMessage('open_mini_player', {
+    source: 'https://example.com/video.mp4',
+  });
 };

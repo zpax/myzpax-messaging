@@ -92,6 +92,14 @@
  *         appName: string, // required - name of the app making the request
  *         toEmail: string  // required - email address to send the form to
  *       }
+ *
+ * - open_mini_player
+ *     Description:
+ *       Request myzPAX to open a mini player with a video source.
+ *     Payload:
+ *       {
+ *         source: string // required - URL of the video source
+ *       }
  */
 
 // ----------------------------
@@ -242,4 +250,13 @@ const openContactForm = () => {
  */
 const openFullView = () => {
   sendZpaxMessage('open_full_view');
+};
+
+/**
+ * Example: Request to open mini player.
+ */
+const openMiniPlayer = () => {
+  sendZpaxMessage('open_mini_player', {
+    source: 'https://example.com/video.mp4',
+  });
 };
