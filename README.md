@@ -76,6 +76,7 @@ addZpaxMessageListener('re_authenticated', () => {
 | `last_interaction`  | none                                                                                                  |
 | `open_full_view`    | none                                                                                                  |
 | `open_contact_form` | `{ appName: string, toEmail: string }`                                                                |
+| `login_status`      | none                                                                                                  |
 
 ---
 
@@ -86,6 +87,7 @@ addZpaxMessageListener('re_authenticated', () => {
 | `lock_app`         | none                      |
 | `re_authenticated` | none                      |
 | `last_interaction` | timestamp (number, in ms) |
+| `login_status`     | boolean                   |
 
 ---
 

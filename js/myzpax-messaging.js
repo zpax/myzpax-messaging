@@ -262,3 +262,15 @@ const openMiniPlayer = () => {
     time: 10,
   });
 };
+
+/**
+ * Example: Check login status
+ */
+const checkLoginStatus = () => {
+  const unsubscribe = addZpaxMessageListener('login_status', (msg) => {
+    console.log('Login status:', msg.data);
+    unsubscribe();
+  });
+
+  sendZpaxMessage('login_status');
+};

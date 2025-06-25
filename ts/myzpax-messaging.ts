@@ -81,6 +81,11 @@ export type ResponseMessage = {
    * Contains the last timestamp (in ms) when embedded app sent an `interaction` message.
    */
   last_interaction: number;
+
+  /**
+   * Sent by myzPAX in response to a `sendZpaxMessage('login_status')` call.
+   */
+  login_status: boolean;
 };
 
 /**
@@ -117,6 +122,11 @@ export type RequestMessage = {
    * Ask myzPAX to show a mini player configured with provided source URL.
    */
   open_mini_player: OpenMiniPlayerMessageData;
+
+  /**
+   * Request myzPAX to send user login status to the embedded app.
+   */
+  login_status: void;
 };
 
 // --------------------------------
@@ -296,4 +306,16 @@ const openMiniPlayer = () => {
     source: 'https://example.com/video.mp4',
     time: 10,
   });
+};
+
+/**
+ * Example: Check login status
+ */
+const checkLoginStatus = () => {
+  const unsubscribe = addZpaxMessageListener('login_status', (msg) => {
+    console.log('Login status:', msg.data);
+    unsubscribe();
+  });
+
+  sendZpaxMessage('login_status');
 };
