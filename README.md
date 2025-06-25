@@ -76,6 +76,7 @@ addZpaxMessageListener('re_authenticated', () => {
 | `last_interaction`  | none                                                                                                  |
 | `open_full_view`    | none                                                                                                  |
 | `open_contact_form` | `{ appName: string, toEmail: string }`                                                                |
+| `open_mini_player`  | `{ source: string, time?: number }`                                                                   |
 | `login_status`      | none                                                                                                  |
 
 ---
