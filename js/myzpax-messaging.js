@@ -49,6 +49,12 @@
  *     Payload:
  *       number (timestamp, e.g., 1718531200113)
  *
+ * - mini_player_closed
+ *     Description:
+ *       Notifies the embedded app that the mini player has been closed.
+ *     Payload:
+ *       undefined
+ *
  * ----------------------------------------
  * Messages sent FROM embedded app TO myzPAX
  * ----------------------------------------
@@ -100,6 +106,15 @@
  *       {
  *         source: string // required - URL of the video source
  *         time: number   // optional - start time in seconds
+ *       }
+ *
+ * - open_signin_signup_popup
+ *     Description:
+ *       Request myzPAX to open a sign-in/sign-up popup.
+ *     Payload:
+ *       {
+ *         title: string // required - title of the popup
+ *         message: string // required - message to display in the popup
  *       }
  */
 

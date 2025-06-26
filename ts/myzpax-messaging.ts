@@ -55,6 +55,15 @@ export type OpenMiniPlayerMessageData = {
   time?: number;
 };
 
+/**
+ * Data for open_signin_signup_popup message.
+ * Sent from embedded app to myzPAX to open a sign-in/sign-up popup.
+ */
+export type OpenSigninSignupPopupMessageData = {
+  title: string;
+  message: string;
+};
+
 // ----------------------------
 // Message Type Definitions
 // ----------------------------
@@ -86,6 +95,11 @@ export type ResponseMessage = {
    * Sent by myzPAX in response to a `sendZpaxMessage('login_status')` call.
    */
   login_status: boolean;
+
+  /**
+   * Sent by myzPAX when the mini player is closed.
+   */
+  mini_player_closed: undefined;
 };
 
 /**
@@ -127,6 +141,11 @@ export type RequestMessage = {
    * Request myzPAX to send user login status to the embedded app.
    */
   login_status: void;
+
+  /**
+   * Ask myzPAX to show a sign-in/sign-up popup configured with provided title and message.
+   */
+  open_signin_signup_popup: OpenSigninSignupPopupMessageData;
 };
 
 // --------------------------------
