@@ -53,7 +53,16 @@
  *     Description:
  *       Notifies the embedded app that the mini player has been closed.
  *     Payload:
- *       undefined
+ *       none
+ *
+ * - state_change
+ *     Description:
+ *       Notifies the embedded app that the 'state' query parameter in the URL of myzPAX has changed.
+ *     Payload:
+ *       {
+ *         state: string | null, // the new value of the 'state' query parameter
+ *         action: 'back' | 'forward' // the action that triggered the state change
+ *       }
  *
  * ----------------------------------------
  * Messages sent FROM embedded app TO myzPAX
@@ -116,6 +125,12 @@
  *         title: string // required - title of the popup
  *         message: string // required - message to display in the popup
  *       }
+ *
+ * - set_state
+ *     Description:
+ *       Request myzPAX to set the state of the embedded app. This will only work in full view mode.
+ *     Payload:
+ *       string // required - state to set
  */
 
 // ----------------------------

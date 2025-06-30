@@ -64,6 +64,19 @@ export type OpenSigninSignupPopupMessageData = {
   message: string;
 };
 
+/**
+ * Data for state_change message.
+ * Sent from myzPAX to the embedded app when the 'state' query parameter in the URL of myzPAX changes
+ * when user clicks on the back or forward button of the browser.
+ */
+export type StateChangeMessageData = {
+  /** Current value of the 'state' query parameter of the URL. */
+  state: string | null;
+
+  /** Direction of the navigation. */
+  action: 'back' | 'forward';
+};
+
 // ----------------------------
 // Message Type Definitions
 // ----------------------------
@@ -100,6 +113,11 @@ export type ResponseMessage = {
    * Sent by myzPAX when the mini player is closed.
    */
   mini_player_closed: undefined;
+
+  /**
+   * Sent by myzPAX when the state of the embedded app changes when user clicks on the back or forward button.
+   */
+  state_change: StateChangeMessageData;
 };
 
 /**
@@ -146,6 +164,11 @@ export type RequestMessage = {
    * Ask myzPAX to show a sign-in/sign-up popup configured with provided title and message.
    */
   open_signin_signup_popup: OpenSigninSignupPopupMessageData;
+
+  /**
+   * Send state to myzPAX. This will only work in full view mode.
+   */
+  set_state: string;
 };
 
 // --------------------------------

@@ -79,18 +79,20 @@ addZpaxMessageListener('re_authenticated', () => {
 | `open_mini_player`         | `{ source: string, time?: number }`                                                                   |
 | `login_status`             | none                                                                                                  |
 | `open_signin_signup_popup` | `{ title: string, message: string}`                                                                   |
+| `set_state`                | string                                                                                                |
 
 ---
 
 ### Received **from** myzPAX
 
-| Message Type         | Data Payload              |
-| -------------------- | ------------------------- |
-| `lock_app`           | none                      |
-| `re_authenticated`   | none                      |
-| `last_interaction`   | timestamp (number, in ms) |
-| `login_status`       | boolean                   |
-| `mini_player_closed` | none                      |
+| Message Type         | Data Payload                                            |
+| -------------------- | ------------------------------------------------------- |
+| `lock_app`           | none                                                    |
+| `re_authenticated`   | none                                                    |
+| `last_interaction`   | timestamp (number, in ms)                               |
+| `login_status`       | boolean                                                 |
+| `mini_player_closed` | none                                                    |
+| `state_change`       | `{state: string \| null, action: 'back' \| 'forward' }` |
 
 ---
 
