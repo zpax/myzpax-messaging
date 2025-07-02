@@ -77,6 +77,15 @@ export type StateChangeMessageData = {
   action: 'back' | 'forward';
 };
 
+/**
+ * Data for mini_player_closed message.
+ * Sent from myzPAX to the embedded app when the mini player is closed.
+ */
+export type MiniPlayerClosedMessageData = {
+  /** currentTime property of the video element during mini player close. */
+  time: number;
+};
+
 // ----------------------------
 // Message Type Definitions
 // ----------------------------
@@ -112,7 +121,7 @@ export type ResponseMessage = {
   /**
    * Sent by myzPAX when the mini player is closed.
    */
-  mini_player_closed: undefined;
+  mini_player_closed: MiniPlayerClosedMessageData;
 
   /**
    * Sent by myzPAX when the state of the embedded app changes when user clicks on the back or forward button.

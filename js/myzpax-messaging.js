@@ -53,7 +53,9 @@
  *     Description:
  *       Notifies the embedded app that the mini player has been closed.
  *     Payload:
- *       none
+ *       {
+ *         time: number // the time in seconds at which the mini player was closed
+ *       }
  *
  * - state_change
  *     Description:

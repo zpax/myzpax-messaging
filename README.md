@@ -91,7 +91,7 @@ addZpaxMessageListener('re_authenticated', () => {
 | `re_authenticated`   | none                                                    |
 | `last_interaction`   | timestamp (number, in ms)                               |
 | `login_status`       | boolean                                                 |
-| `mini_player_closed` | none                                                    |
+| `mini_player_closed` | `{ time: number }`                                      |
 | `state_change`       | `{state: string \| null, action: 'back' \| 'forward' }` |
 
 ---
