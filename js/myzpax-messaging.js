@@ -54,7 +54,9 @@
  *       Notifies the embedded app that the mini player has been closed.
  *     Payload:
  *       {
+ *         src: string // the source URL of the mini player
  *         time: number // the time in seconds at which the mini player was closed
+ *         volume: number // the volume at which the mini player was closed (0-1)
  *       }
  *
  * - state_change
@@ -115,8 +117,11 @@
  *       Request myzPAX to open a mini player with a video source.
  *     Payload:
  *       {
- *         source: string // required - URL of the video source
- *         time: number   // optional - start time in seconds
+ *         src: string // required - URL of the video source
+ *         time?: number   // optional - start time in seconds
+ *         title?: string  // optional - title of the mini player
+ *         subtitle?: string // optional - subtitle of the mini player
+ *         volume?: number // optional - volume of the mini player
  *       }
  *
  * - open_signin_signup_popup

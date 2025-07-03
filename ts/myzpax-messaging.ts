@@ -49,10 +49,16 @@ export type OpenContactFormMessageData = {
  */
 export type OpenMiniPlayerMessageData = {
   /** Video URL for the mini player. */
-  source: string;
+  src: string;
 
   /** Start time in seconds for the mini player. */
   time?: number;
+
+  /** Title of the mini player. */
+  title?: string;
+
+  /** Subtitle of the mini player. */
+  subtitle?: string;
 };
 
 /**
@@ -82,8 +88,14 @@ export type StateChangeMessageData = {
  * Sent from myzPAX to the embedded app when the mini player is closed.
  */
 export type MiniPlayerClosedMessageData = {
+  /** src property of the video element during mini player close. */
+  src: string;
+
   /** currentTime property of the video element during mini player close. */
   time: number;
+
+  /** volume property of the video element during mini player close. */
+  volume: number;
 };
 
 // ----------------------------
@@ -354,7 +366,7 @@ const openFullView = () => {
  */
 const openMiniPlayer = () => {
   sendZpaxMessage('open_mini_player', {
-    source: 'https://example.com/video.mp4',
+    src: 'https://example.com/video.mp4',
     time: 10,
   });
 };
