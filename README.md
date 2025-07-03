@@ -76,7 +76,7 @@ addZpaxMessageListener('re_authenticated', () => {
 | `last_interaction`         | none                                                                                                  |
 | `open_full_view`           | none                                                                                                  |
 | `open_contact_form`        | `{ appName: string, toEmail: string }`                                                                |
-| `open_mini_player`         | `{ src: string, time?: number, title?: string, subtitle?: string, volume?: number }`                  |
+| `open_mini_player`         | `{ src: string, currentTime: number, title?: string, subtitle?: string, volume: number }`             |
 | `login_status`             | none                                                                                                  |
 | `open_signin_signup_popup` | `{ title: string, message: string}`                                                                   |
 | `set_state`                | string                                                                                                |
@@ -91,7 +91,7 @@ addZpaxMessageListener('re_authenticated', () => {
 | `re_authenticated`   | none                                                    |
 | `last_interaction`   | timestamp (number, in ms)                               |
 | `login_status`       | boolean                                                 |
-| `mini_player_closed` | `{ src: string, time: number, volume: number }`         |
+| `mini_player_closed` | `{ src: string, currentTime: number, volume: number }`  |
 | `state_change`       | `{state: string \| null, action: 'back' \| 'forward' }` |
 
 ---

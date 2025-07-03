@@ -51,8 +51,11 @@ export type OpenMiniPlayerMessageData = {
   /** Video URL for the mini player. */
   src: string;
 
+  /** Volume of the mini player (range: 0-1). */
+  volume: number;
+
   /** Start time in seconds for the mini player. */
-  time?: number;
+  currentTime: number;
 
   /** Title of the mini player. */
   title?: string;
@@ -92,7 +95,7 @@ export type MiniPlayerClosedMessageData = {
   src: string;
 
   /** currentTime property of the video element during mini player close. */
-  time: number;
+  currentTime: number;
 
   /** volume property of the video element during mini player close. */
   volume: number;
@@ -367,7 +370,8 @@ const openFullView = () => {
 const openMiniPlayer = () => {
   sendZpaxMessage('open_mini_player', {
     src: 'https://example.com/video.mp4',
-    time: 10,
+    currentTime: 10,
+    volume: 0.5,
   });
 };
 

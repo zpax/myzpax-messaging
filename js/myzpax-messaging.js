@@ -55,7 +55,7 @@
  *     Payload:
  *       {
  *         src: string // the source URL of the mini player
- *         time: number // the time in seconds at which the mini player was closed
+ *         currentTime: number // the time in seconds at which the mini player was closed
  *         volume: number // the volume at which the mini player was closed (0-1)
  *       }
  *
@@ -118,10 +118,10 @@
  *     Payload:
  *       {
  *         src: string // required - URL of the video source
- *         time?: number   // optional - start time in seconds
+ *         currentTime: number   // required - start time in seconds
+ *         volume: number // required - volume of the mini player (range: 0-1)
  *         title?: string  // optional - title of the mini player
  *         subtitle?: string // optional - subtitle of the mini player
- *         volume?: number // optional - volume of the mini player
  *       }
  *
  * - open_signin_signup_popup
