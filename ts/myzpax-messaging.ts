@@ -31,6 +31,14 @@ export type LockAppMessageData = {
   lockType: 'timeout' | 'manual';
 };
 
+export type OpenFullViewMessageData = {
+  /**
+   * Included as the 'state' query param in your app's URL when redirected back from SSO.
+   * Used to restore app state or navigate to a specific page after receiving the auth code.
+   */
+  state?: string;
+};
+
 /**
  * Data for open_contact_form message.
  * Sent from embedded app to myzPAX to open a contact form.
@@ -190,7 +198,7 @@ export type RequestMessage = {
   /**
    * Ask myzPAX to open the embedded app in full view.
    */
-  open_full_view: void;
+  open_full_view: OpenFullViewMessageData;
 
   /**
    * Ask myzPAX to show a contact form configured with provided app name and email.
@@ -216,6 +224,11 @@ export type RequestMessage = {
    * Send state to myzPAX. This will only work in full view mode.
    */
   set_state: string;
+
+  /**
+   * Enables or disables a confirmation dialog before unloading the page. This will only work in full view mode.
+   */
+  unsaved_changes_confirmation: boolean;
 };
 
 // --------------------------------
@@ -384,7 +397,7 @@ const openContactForm = () => {
  * Example: Request to open full-view mode.
  */
 const openFullView = () => {
-  sendZpaxMessage('open_full_view');
+  sendZpaxMessage('open_full_view', { state: 'patient/123' });
 };
 
 /**

@@ -69,17 +69,18 @@ addZpaxMessageListener('re_authenticated', () => {
 
 ### Sent **to** myzPAX
 
-| Message Type               | Data Payload                                                                                                     |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `interaction`              | none                                                                                                             |
-| `lock_app`                 | `{ lockType: 'manual' \| 'timeout', afterReAuthAction?: 'reload' \| 'none', removeIframe?: boolean }`            |
-| `last_interaction`         | none                                                                                                             |
-| `open_full_view`           | none                                                                                                             |
-| `open_contact_form`        | `{ appName: string, toEmail: string }`                                                                           |
-| `open_mini_player`         | `{ src: string, videoPagePath: string, currentTime: number, title?: string, subtitle?: string, volume: number }` |
-| `login_status`             | none                                                                                                             |
-| `open_signin_signup_popup` | `{ title: string, message: string}`                                                                              |
-| `set_state`                | string                                                                                                           |
+| Message Type                   | Data Payload                                                                                                     |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| `interaction`                  | none                                                                                                             |
+| `lock_app`                     | `{ lockType: 'manual' \| 'timeout', afterReAuthAction?: 'reload' \| 'none', removeIframe?: boolean }`            |
+| `last_interaction`             | none                                                                                                             |
+| `open_full_view`               | `{ state?: string}`                                                                                              |
+| `open_contact_form`            | `{ appName: string, toEmail: string }`                                                                           |
+| `open_mini_player`             | `{ src: string, videoPagePath: string, currentTime: number, title?: string, subtitle?: string, volume: number }` |
+| `login_status`                 | none                                                                                                             |
+| `open_signin_signup_popup`     | `{ title: string, message: string}`                                                                              |
+| `set_state`                    | string                                                                                                           |
+| `unsaved_changes_confirmation` | boolean                                                                                                          |
 
 ---
 

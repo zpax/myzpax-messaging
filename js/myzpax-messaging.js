@@ -111,7 +111,10 @@
  *     Description:
  *       Request myzPAX to open the embedded app in full-view mode.
  *     Payload:
- *       none
+ *       {
+ *         state?: string // optional -  Included as the 'state' query param in your app's URL when redirected back from SSO.
+ *                                       Used to restore app state or navigate to a specific page after receiving the auth code.
+ *       }
  *
  * - open_contact_form
  *     Description:
@@ -149,6 +152,12 @@
  *       Request myzPAX to set the state of the embedded app. This will only work in full view mode.
  *     Payload:
  *       string // required - state to set
+ *
+ * - unsaved_changes_confirmation
+ *     Description:
+ *       Request myzPAX to enable or disable an unsaved changes confirmation dialog.
+ *     Payload:
+ *       boolean // required - true to enable, false to disable
  */
 
 // ----------------------------
