@@ -68,6 +68,16 @@
  *         action: 'back' | 'forward' // the action that triggered the state change
  *       }
  *
+ * - mini_player_fullscreen
+ *     Description:
+ *       Notifies the embedded app that the mini player's full-screen button has been clicked.
+ *     Payload:
+ *       {
+ *         src: string // the source URL of the mini player
+ *         currentTime: number // the time in seconds at which the mini player was closed
+ *         volume: number // the volume at which the mini player was closed (0-1)
+ *       }
+ *
  * ----------------------------------------
  * Messages sent FROM embedded app TO myzPAX
  * ----------------------------------------
@@ -118,6 +128,7 @@
  *     Payload:
  *       {
  *         src: string // required - URL of the video source
+ *         videoPagePath: string // required - path of the video page
  *         currentTime: number   // required - start time in seconds
  *         volume: number // required - volume of the mini player (range: 0-1)
  *         title?: string  // optional - title of the mini player

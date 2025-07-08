@@ -51,6 +51,9 @@ export type OpenMiniPlayerMessageData = {
   /** Video URL for the mini player. */
   src: string;
 
+  /** Path of the video page. Used for redirecting the user to video page when clicked on full screen button of mini player. */
+  videoPagePath: string;
+
   /** Volume of the mini player (range: 0-1). */
   volume: number;
 
@@ -91,6 +94,21 @@ export type StateChangeMessageData = {
  * Sent from myzPAX to the embedded app when the mini player is closed.
  */
 export type MiniPlayerClosedMessageData = {
+  /** src property of the video element during mini player close. */
+  src: string;
+
+  /** currentTime property of the video element during mini player close. */
+  currentTime: number;
+
+  /** volume property of the video element during mini player close. */
+  volume: number;
+};
+
+/**
+ * Data for mini_player_fullscreen message.
+ * Sent from myzPAX to the embedded app when the mini player's full-screen button is clicked.
+ */
+export type MiniPlayerFullScreenMessageData = {
   /** src property of the video element during mini player close. */
   src: string;
 
@@ -142,6 +160,11 @@ export type ResponseMessage = {
    * Sent by myzPAX when the state of the embedded app changes when user clicks on the back or forward button.
    */
   state_change: StateChangeMessageData;
+
+  /**
+   * Sent by myzPAX when mini player's full screen button is clicked.
+   */
+  mini_player_full_screen: MiniPlayerFullScreenMessageData;
 };
 
 /**
@@ -370,6 +393,7 @@ const openFullView = () => {
 const openMiniPlayer = () => {
   sendZpaxMessage('open_mini_player', {
     src: 'https://example.com/video.mp4',
+    videoPagePath: 'my-videos/example-video',
     currentTime: 10,
     volume: 0.5,
   });

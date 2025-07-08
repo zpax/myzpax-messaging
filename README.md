@@ -31,7 +31,7 @@ myzpax-messaging/
 
 ## 2. Use in Your App
 
-You can either clone this repo or copy the `js/` or `ts/` implementation directly into your project.
+Copy the `js/` or `ts/` implementation into your project.
 
 ### ✅ Example (JavaScript)
 
@@ -69,30 +69,31 @@ addZpaxMessageListener('re_authenticated', () => {
 
 ### Sent **to** myzPAX
 
-| Message Type               | Data Payload                                                                                          |
-| -------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `interaction`              | none                                                                                                  |
-| `lock_app`                 | `{ lockType: 'manual' \| 'timeout', afterReAuthAction?: 'reload' \| 'none', removeIframe?: boolean }` |
-| `last_interaction`         | none                                                                                                  |
-| `open_full_view`           | none                                                                                                  |
-| `open_contact_form`        | `{ appName: string, toEmail: string }`                                                                |
-| `open_mini_player`         | `{ src: string, currentTime: number, title?: string, subtitle?: string, volume: number }`             |
-| `login_status`             | none                                                                                                  |
-| `open_signin_signup_popup` | `{ title: string, message: string}`                                                                   |
-| `set_state`                | string                                                                                                |
+| Message Type               | Data Payload                                                                                                     |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `interaction`              | none                                                                                                             |
+| `lock_app`                 | `{ lockType: 'manual' \| 'timeout', afterReAuthAction?: 'reload' \| 'none', removeIframe?: boolean }`            |
+| `last_interaction`         | none                                                                                                             |
+| `open_full_view`           | none                                                                                                             |
+| `open_contact_form`        | `{ appName: string, toEmail: string }`                                                                           |
+| `open_mini_player`         | `{ src: string, videoPagePath: string, currentTime: number, title?: string, subtitle?: string, volume: number }` |
+| `login_status`             | none                                                                                                             |
+| `open_signin_signup_popup` | `{ title: string, message: string}`                                                                              |
+| `set_state`                | string                                                                                                           |
 
 ---
 
 ### Received **from** myzPAX
 
-| Message Type         | Data Payload                                            |
-| -------------------- | ------------------------------------------------------- |
-| `lock_app`           | none                                                    |
-| `re_authenticated`   | none                                                    |
-| `last_interaction`   | timestamp (number, in ms)                               |
-| `login_status`       | boolean                                                 |
-| `mini_player_closed` | `{ src: string, currentTime: number, volume: number }`  |
-| `state_change`       | `{state: string \| null, action: 'back' \| 'forward' }` |
+| Message Type             | Data Payload                                            |
+| ------------------------ | ------------------------------------------------------- |
+| `lock_app`               | none                                                    |
+| `re_authenticated`       | none                                                    |
+| `last_interaction`       | timestamp (number, in ms)                               |
+| `login_status`           | boolean                                                 |
+| `mini_player_closed`     | `{ src: string, currentTime: number, volume: number }`  |
+| `state_change`           | `{state: string \| null, action: 'back' \| 'forward' }` |
+| `mini_player_fullscreen` | `{ src: string, currentTime: number, volume: number }`  |
 
 ---
 
