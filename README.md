@@ -25,9 +25,7 @@ myzpax-messaging/
 │   └── react-ts/
 │       └── App.tsx                  # Sample usage in a React (TypeScript) component
 ├── docs/
-│   ├── addZpaxMessageListener.md    # Documentation for addZpaxMessageListener
-│   ├── sendZpaxMessage.md           # Documentation for sendZpaxMessage
-│   ├── setTargets.md                # Documentation for setTargets
+│   ├── functions                    # Folder containing docs for all the utility functions
 │   ├── request-message              # Folder containing docs for all the messages that embedded app can send to myzPAX
 │   ├── response-message             # Folder containing docs for all the messages that myzPAX will send to the embedded app
 │   └── type-definitions             # Folder containing docs for utility types

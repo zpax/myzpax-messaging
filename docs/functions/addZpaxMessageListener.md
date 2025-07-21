@@ -9,7 +9,7 @@ This function allows the embedded (iframe) application to respond to messages se
 ### Type Parameters
 
 - `T extends keyof ResponseMessage`  
-  The type of message to listen for. Must be a key in the [`ResponseMessage`](./response-message/) type.
+  The type of message to listen for. Must be a key in the [`ResponseMessage`](../response-message/) type.
 
 ### Parameters
 
@@ -25,7 +25,7 @@ This function allows the embedded (iframe) application to respond to messages se
 
 ### Type Definition Reference
 
-[`ResponseMessageHandler`](./type-definitions/responseMessageHandler.md)
+[`ResponseMessageHandler`](../type-definitions/responseMessageHandler.md)
 
 ### Example Usage
 
@@ -43,4 +43,4 @@ unsubscribe();
 
 - [`setTargets()`](./setTargets.md) – Must be called first to configure valid message origins.
 - [`sendZpaxMessage()`](./sendZpaxMessage.md) – Used to send messages to the parent container.
-- [`ResponseMessage`](./response-message) – Defines the available incoming message types and their expected payloads.
+- [`ResponseMessage`](../response-message) – Defines the available incoming message types and their expected payloads.

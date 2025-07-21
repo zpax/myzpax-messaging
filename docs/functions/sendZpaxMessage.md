@@ -43,4 +43,4 @@ sendZpaxMessage('lock_app', {
 ### Related
 
 - [`setTargets()`](./setTargets.md) – Call this to define the list of parent origins to which messages should be sent.
-- [`RequestMessage`](./request-message/) – Defines the available message types and their expected payloads.
+- [`RequestMessage`](../request-message/) – Defines the available message types and their expected payloads.
