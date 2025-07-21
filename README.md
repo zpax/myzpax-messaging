@@ -74,11 +74,11 @@ addZpaxMessageListener('re_authenticated', () => {
 
 ### Utility Functions
 
-[`sendZpaxMessage`](./docs/sendZpaxMessage.md)
+[`sendZpaxMessage`](./docs/functions/sendZpaxMessage.md)
 
-[`addZpaxMessageListener`](./docs/addZpaxMessageListener.md)
+[`addZpaxMessageListener`](./docs/functions/addZpaxMessageListener.md)
 
-[`setTargets`](./docs/setTargets.md)
+[`setTargets`](./docs/functions/setTargets.md)
 
 ### Request Messages (Sent by Embedded App To myzPAX)
 
