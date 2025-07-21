@@ -11,7 +11,7 @@ Also included are usage examples for **Vue.js**, **React**
 
 ---
 
-## 1. Project Structure
+## Project Structure
 
 ```
 myzpax-messaging/
@@ -24,12 +24,19 @@ myzpax-messaging/
 │   │   └── example.vue              # Sample usage in a Vue.js component
 │   └── react-ts/
 │       └── App.tsx                  # Sample usage in a React (TypeScript) component
+├── docs/
+│   ├── addZpaxMessageListener.md    # Documentation for addZpaxMessageListener
+│   ├── sendZpaxMessage.md           # Documentation for sendZpaxMessage
+│   ├── setTargets.md                # Documentation for setTargets
+│   ├── request-message              # Folder containing docs for all the messages that embedded app can send to myzPAX
+│   ├── response-message             # Folder containing docs for all the messages that myzPAX will send to the embedded app
+│   └── type-definitions             # Folder containing docs for utility types
 ├── README.md                        # Main documentation and usage instructions
 ```
 
 ---
 
-## 2. Use in Your App
+## Use in Your App
 
 Copy the `js/` or `ts/` implementation into your project.
 
@@ -65,52 +72,54 @@ addZpaxMessageListener('re_authenticated', () => {
 
 ---
 
-## 3. Message Types
+## Documentation
 
-### Sent **to** myzPAX
+### Utility Functions
 
-| Message Type                   | Data Payload                                                                                                     |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| `interaction`                  | none                                                                                                             |
-| `lock_app`                     | `{ lockType: 'manual' \| 'timeout', afterReAuthAction?: 'reload' \| 'none', removeIframe?: boolean }`            |
-| `last_interaction`             | none                                                                                                             |
-| `open_full_view`               | `{ state?: string}`                                                                                              |
-| `open_contact_form`            | `{ appName: string, toEmail: string }`                                                                           |
-| `open_mini_player`             | `{ src: string, videoPagePath: string, currentTime: number, title?: string, subtitle?: string, volume: number }` |
-| `login_status`                 | none                                                                                                             |
-| `open_signin_signup_popup`     | `{ title: string, message: string}`                                                                              |
-| `set_state`                    | string                                                                                                           |
-| `unsaved_changes_confirmation` | boolean                                                                                                          |
+[`sendZpaxMessage`](./docs/sendZpaxMessage.md)
 
----
+[`addZpaxMessageListener`](./docs/addZpaxMessageListener.md)
 
-### Received **from** myzPAX
+[`setTargets`](./docs/setTargets.md)
 
-| Message Type             | Data Payload                                            |
-| ------------------------ | ------------------------------------------------------- |
-| `lock_app`               | none                                                    |
-| `re_authenticated`       | none                                                    |
-| `last_interaction`       | timestamp (number, in ms)                               |
-| `login_status`           | boolean                                                 |
-| `mini_player_closed`     | `{ src: string, currentTime: number, volume: number }`  |
-| `state_change`           | `{state: string \| null, action: 'back' \| 'forward' }` |
-| `mini_player_fullscreen` | `{ src: string, currentTime: number, volume: number }`  |
+### Request Messages (Sent by Embedded App To myzPAX)
 
----
+[`interaction`](./docs/request-message/interaction.md)
 
-## 4. Examples
+[`last_interaction`](./docs/request-message/last_interaction.md)
+
+[`lock_app`](./docs/request-message/lock_app.md)
+
+[`login_status`](./docs/request-message/login_status.md)
+
+[`open_contact_form`](./docs/request-message/open_contact_form.md)
+
+[`open_full_view`](./docs/request-message/open_full_view.md)
+
+[`open_mini_player`](./docs/request-message/open_mini_player.md)
+
+[`set_state`](./docs/request-message/set_state.md)
+
+[`unsaved_changes_confirmation`](./docs/request-message/unsaved_changes_confirmation.md)
+
+### Response Messages (Sent by myzPAX to Embedded App)
+
+[`last_interaction`](./docs/response-message/last_interaction.md)
+
+[`lock_app`](./docs/response-message/lock_app.md)
+
+[`login_status`](./docs/response-message/login_status.md)
+
+[`mini_player_closed`](./docs/response-message/mini_player_closed.md)
+
+[`mini_player_full_screen`](./docs/response-message/mini_player_full_screen.md)
+
+[`re_authenticated`](./docs/response-message/re_authenticated.md)
+
+[`state_change`](./docs/response-message/state_change.md)
+
+## Examples
 
 See [Vue.js example](./examples/vue/example.vue)
 
 See [React with ts example](./examples/react-ts/App.tsx)
-
-## 📚 More Detailed Documentation
-
-Each utility file (`ts/myzpax-messaging.ts` and `js/myzpax-messaging.js`) contains extensive inline documentation covering:
-
-- All available message types and their purposes
-- Data structures and expected fields
-- Examples of how to use each function (`setTargets`, `sendZpaxMessage`, `addZpaxMessageListener`)
-- Common use cases like lockouts, re-auth flows, and full-view toggles
-
-We recommend reviewing these files directly for a deeper understanding.
