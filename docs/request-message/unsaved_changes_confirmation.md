@@ -24,6 +24,10 @@ sendZpaxMessage('unsaved_changes_confirmation', true);
 sendZpaxMessage('unsaved_changes_confirmation', false);
 ```
 
+## Use Cases
+
+- Alerting user about unsaved changes before navigating to a different app/feature in myzPAX
+
 ## Related
 
 - [`sendZpaxMessage`](../sendZpaxMessage.md) — Function to send messages to myzPAX.

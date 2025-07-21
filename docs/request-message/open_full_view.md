@@ -30,8 +30,7 @@ sendZpaxMessage('open_full_view', {
 
 ## Use Cases
 
-- Promote a card or app to full screen.
-- Use as an SSO flow entry point.
+- Opening full view from a user action in the tile view
 
 ## Related
 

@@ -34,7 +34,6 @@ const unsubscribe = addZpaxMessageListener('last_interaction', (message) => {
 
 ## Use Cases
 
-- To display or log the user's last interaction time.
 - To decide whether to lock the app or re-authenticate based on inactivity duration.
 - To resync timers after the tab becomes active again.
 

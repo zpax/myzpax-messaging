@@ -36,7 +36,6 @@ addZpaxMessageListener('login_status', (message) => {
 
 - Pre-check before accessing protected content.
 - Load content based on the login status like showing marketing content when not logged in.
-- Clearing out previous session's data from localStorage.
 
 ## Related
 

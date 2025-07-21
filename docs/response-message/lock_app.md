@@ -27,7 +27,7 @@ addZpaxMessageListener('lock_app', () => {
 
 ## Use Cases
 
-- When user click on the lock icon on the tile header to lock the application. You can perform necessary operation like stopping timers, saving state and send the message `lock_app` with `lockType` as `manual` to confirm lock.
+- When there is a `lock_app` request from the user using myzPAX UI, you will receive this message where you can perform necessary operation like stopping timers, saving state and send the message `lock_app` with `lockType` as `manual` to confirm lock.
 
 ## Related
 
