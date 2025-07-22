@@ -38,5 +38,5 @@ addZpaxMessageListener('mini_player_closed', (message) => {
 ## Related
 
 - [`open_mini_player`](../request-message/open_mini_player.md)
-- [`mini_player_full_screen`](#mini_player_full_screen-message)
+- [`mini_player_fullscreen`](#mini_player_fullscreen-message)
 - [`addZpaxMessageListener`](../addZpaxMessageListener.md) — Function used to subscribe to incoming messages.

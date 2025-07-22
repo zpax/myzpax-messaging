@@ -110,7 +110,7 @@ addZpaxMessageListener('re_authenticated', () => {
 
 [`mini_player_closed`](./docs/response-message/mini_player_closed.md)
 
-[`mini_player_full_screen`](./docs/response-message/mini_player_full_screen.md)
+[`mini_player_fullscreen`](./docs/response-message/mini_player_fullscreen.md)
 
 [`re_authenticated`](./docs/response-message/re_authenticated.md)
 

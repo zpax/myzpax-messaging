@@ -116,7 +116,7 @@ export type MiniPlayerClosedMessageData = {
  * Data for mini_player_fullscreen message.
  * Sent from myzPAX to the embedded app when the mini player's full-screen button is clicked.
  */
-export type MiniPlayerFullScreenMessageData = {
+export type MiniPlayerFullscreenMessageData = {
   /** src property of the video element during mini player close. */
   src: string;
 
@@ -172,7 +172,7 @@ export type ResponseMessage = {
   /**
    * Sent by myzPAX when mini player's full screen button is clicked.
    */
-  mini_player_full_screen: MiniPlayerFullScreenMessageData;
+  mini_player_fullscreen: MiniPlayerFullscreenMessageData;
 };
 
 /**
