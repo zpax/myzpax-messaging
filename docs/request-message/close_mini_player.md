@@ -26,5 +26,5 @@ sendZpaxMessage('close_mini_player', 'close');
 
 ## Related
 
-- [`mini_player_closed'](../response-message/mini_player_closed.md) — Listen to message that is sent after mini player is closed.
+- [`mini_player_closed`](../response-message/mini_player_closed.md) — Listen to message that is sent after mini player is closed.
 - [`sendZpaxMessage`](../sendZpaxMessage.md) — Function to send messages to myzPAX.
