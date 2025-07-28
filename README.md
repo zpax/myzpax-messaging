@@ -96,6 +96,8 @@ addZpaxMessageListener('re_authenticated', () => {
 
 [`open_mini_player`](./docs/request-message/open_mini_player.md)
 
+[`close_mini_player`](./docs/request-message/close_mini_player.md)
+
 [`set_state`](./docs/request-message/set_state.md)
 
 [`unsaved_changes_confirmation`](./docs/request-message/unsaved_changes_confirmation.md)

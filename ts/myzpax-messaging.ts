@@ -229,6 +229,11 @@ export type RequestMessage = {
    * Enables or disables a confirmation dialog before unloading the page. This will only work in full view mode.
    */
   unsaved_changes_confirmation: boolean;
+
+  /**
+   * Ask myzPAX to close the mini player
+   */
+  close_mini_player: 'close' | 'fullscreen';
 };
 
 // --------------------------------
