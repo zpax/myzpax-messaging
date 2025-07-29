@@ -1,7 +1,5 @@
 # myzPAX Messaging Utility
 
-test
-
 This repository provides a messaging utility that enables structured and secure communication between an embedded application and the **myzPAX** container using the `postMessage` API.
 
 It includes both:
