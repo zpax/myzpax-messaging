@@ -158,6 +158,24 @@
  *       Request myzPAX to enable or disable an unsaved changes confirmation dialog.
  *     Payload:
  *       boolean // required - true to enable, false to disable
+ *
+ * - close_mini_player
+ *     Description:
+ *       Request myzPAX to close the mini player.
+ *     Payload:
+ *       'close' | 'fullscreen'
+ *
+ * - redirect_to_login
+ *     Description:
+ *       Request myzPAX to redirect to the login page.
+ *     Payload:
+ *       none
+ *
+ * - redirect_to_signup
+ *     Description:
+ *       Request myzPAX to redirect to the sign up page.
+ *     Payload:
+ *       none
  */
 
 // ----------------------------

@@ -234,6 +234,16 @@ export type RequestMessage = {
    * Ask myzPAX to close the mini player
    */
   close_mini_player: 'close' | 'fullscreen';
+
+  /**
+   * Ask myzPAX to redirect to login page
+   */
+  redirect_to_login: void;
+
+  /**
+   * Ask myzPAX to redirect to sign up page
+   */
+  redirect_to_signup: void;
 };
 
 // --------------------------------
