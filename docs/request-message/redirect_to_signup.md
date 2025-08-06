@@ -20,7 +20,7 @@ sendZpaxMessage('redirect_to_signup');
 
 ## Use Cases
 
-- When there is a sign-up prompt or an action that requires the user registration.
+- When there is a sign-up prompt or an action that requires user registration.
 
 ## Related
 
