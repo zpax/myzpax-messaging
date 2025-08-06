@@ -102,6 +102,10 @@ addZpaxMessageListener('re_authenticated', () => {
 
 [`unsaved_changes_confirmation`](./docs/request-message/unsaved_changes_confirmation.md)
 
+[`redirect_to_login`](./docs/request-message/redirect_to_login.md)
+
+[`redirect_to_signup`](./docs/request-message/redirect_to_signup.md)
+
 ### Response Messages (Sent by myzPAX to Embedded App)
 
 [`last_interaction`](./docs/response-message/last_interaction.md)
