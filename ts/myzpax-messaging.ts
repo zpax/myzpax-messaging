@@ -125,6 +125,9 @@ export type MiniPlayerFullscreenMessageData = {
 
   /** volume property of the video element during mini player close. */
   volume: number;
+
+  /** Path of the video page. Used for redirecting the user to video page when clicked on full screen button of mini player. */
+  videoPagePath: string;
 };
 
 // ----------------------------

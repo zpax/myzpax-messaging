@@ -15,6 +15,7 @@ type Payload = {
   src: string;
   currentTime: number;
   volume: number;
+  videoPagePath: string;
 };
 ```
 
@@ -27,7 +28,7 @@ type Payload = {
 ```ts
 addZpaxMessageListener('mini_player_fullscreen', (message) => {
   const video = message.data;
-  enterFullScreenPlayback(video.src, video.currentTime, video.volume);
+  enterFullScreenPlayback(video.videoPagePath, video.src, video.currentTime, video.volume);
 });
 ```
 
