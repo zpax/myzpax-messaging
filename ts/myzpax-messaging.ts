@@ -239,14 +239,14 @@ export type RequestMessage = {
   close_mini_player: 'close' | 'fullscreen';
 
   /**
-   * Ask myzPAX to redirect to login page
+   * Ask myzPAX to open login login
    */
-  redirect_to_login: void;
+  open_login_popup: void;
 
   /**
-   * Ask myzPAX to redirect to sign up page
+   * Ask myzPAX to open sign up popup
    */
-  redirect_to_signup: void;
+  open_signup_popup: void;
 };
 
 // --------------------------------
