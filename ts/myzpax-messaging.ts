@@ -52,21 +52,32 @@ export type OpenContactFormMessageData = {
 };
 
 /**
+ * Base video info
+ */
+export type VideoInfo = {
+  /** Video URL. */
+  src: string;
+
+  /** Start time in seconds. */
+  currentTime: number;
+
+  /** Volume of video (range: 0-1). */
+  volume: number;
+
+  /** Playback rate of video. */
+  playbackRate: number;
+};
+
+/**
  * Data for open_mini_player message.
  * Sent from embedded app to myzPAX to open a mini player.
  */
-export type OpenMiniPlayerMessageData = {
-  /** Video URL for the mini player. */
-  src: string;
-
+export type OpenMiniPlayerMessageData = VideoInfo & {
   /** Path of the video page. Used for redirecting the user to video page when clicked on full screen button of mini player. */
   videoPagePath: string;
 
-  /** Volume of the mini player (range: 0-1). */
-  volume: number;
-
-  /** Start time in seconds for the mini player. */
-  currentTime: number;
+  /** Playback rate options for the mini player. */
+  playbackRateOptions: number[];
 
   /** Title of the mini player. */
   title?: string;
@@ -101,30 +112,15 @@ export type StateChangeMessageData = {
  * Data for mini_player_closed message.
  * Sent from myzPAX to the embedded app when the mini player is closed.
  */
-export type MiniPlayerClosedMessageData = {
-  /** src property of the video element during mini player close. */
-  src: string;
-
-  /** currentTime property of the video element during mini player close. */
-  currentTime: number;
-
-  /** volume property of the video element during mini player close. */
-  volume: number;
-};
+export type MiniPlayerClosedMessageData = VideoInfo;
 
 /**
  * Data for mini_player_fullscreen message.
  * Sent from myzPAX to the embedded app when the mini player's full-screen button is clicked.
  */
-export type MiniPlayerFullscreenMessageData = {
-  /** src property of the video element during mini player close. */
-  src: string;
-
-  /** currentTime property of the video element during mini player close. */
-  currentTime: number;
-
-  /** volume property of the video element during mini player close. */
-  volume: number;
+export type MiniPlayerFullscreenMessageData = VideoInfo & {
+  /** Path of the video page. Used for redirecting the user to video page when clicked on full screen button of mini player. */
+  videoPagePath: string;
 };
 
 // ----------------------------
@@ -236,14 +232,14 @@ export type RequestMessage = {
   close_mini_player: 'close' | 'fullscreen';
 
   /**
-   * Ask myzPAX to redirect to login page
+   * Ask myzPAX to open login login
    */
-  redirect_to_login: void;
+  open_login_popup: void;
 
   /**
-   * Ask myzPAX to redirect to sign up page
+   * Ask myzPAX to open sign up popup
    */
-  redirect_to_signup: void;
+  open_signup_popup: void;
 };
 
 // --------------------------------

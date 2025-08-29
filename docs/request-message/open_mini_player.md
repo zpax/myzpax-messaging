@@ -24,6 +24,10 @@ type OpenMiniPlayerMessageData = {
   title?: string;
   /** Optional subtitle of the mini player. */
   subtitle?: string;
+  /** Playback rate of video. */
+  playbackRate: number;
+  /** Playback rate options for the mini player. */
+  playbackRateOptions: number[];
 };
 ```
 
@@ -37,6 +41,8 @@ sendZpaxMessage('open_mini_player', {
   currentTime: 5,
   title: 'Episode 1',
   subtitle: 'Pilot',
+  playbackRate: 1,
+  playbackRateOption: [0.25, 0.5, 1, 1.5, 2],
 });
 ```
 
