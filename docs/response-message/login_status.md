@@ -1,6 +1,6 @@
 # `login_status` Response Message
 
-The `login_status` message is sent by **myzPAX** in response to a login status request. It indicates whether the user is currently authenticated.
+The login_status message is sent by **myzPAX** in response to a login_status request. It returns the authenticated user's ID if they are logged in; otherwise, it responds with null
 
 ## Message Type
 

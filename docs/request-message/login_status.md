@@ -1,6 +1,6 @@
 # `login_status` Request Message
 
-This message is used to check whether the user is currently authenticated.
+This message is sent from the embedded app to request the user's authentication status.[`login_status`](../response-message/login_status.md) response message must be listened to before making the request. It will return the userId if the user is logged in; otherwise, it will return null.
 
 ## Message Type
 
@@ -15,13 +15,13 @@ None
 ## Example
 
 ```ts
-sendZpaxMessage('login_status');
-
 addZpaxMessageListener('login_status', (message) => {
   if (!message.data) {
     redirectToLogin();
   }
 });
+
+sendZpaxMessage('login_status');
 ```
 
 ## Use Cases
