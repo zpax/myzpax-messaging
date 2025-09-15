@@ -152,6 +152,7 @@ export type ResponseMessage = {
 
   /**
    * Sent by myzPAX in response to a `sendZpaxMessage('login_status')` call.
+   * Contains user ID if the user is logged in, else it will be null.
    */
   login_status: number | null;
 

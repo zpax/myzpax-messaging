@@ -11,6 +11,7 @@ type messageType = 'login_status';
 ## Payload
 
 ```ts
+// Contains user ID if the user is logged in, else it will be null.
 type Payload = number | null;
 ```
 
