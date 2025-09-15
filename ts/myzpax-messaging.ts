@@ -153,7 +153,7 @@ export type ResponseMessage = {
   /**
    * Sent by myzPAX in response to a `sendZpaxMessage('login_status')` call.
    */
-  login_status: boolean;
+  login_status: number | null;
 
   /**
    * Sent by myzPAX when the mini player is closed.
