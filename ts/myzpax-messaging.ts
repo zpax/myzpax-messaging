@@ -68,6 +68,48 @@ export type VideoInfo = {
   playbackRate: number;
 };
 
+export type PreviousNextVideoSettings = {
+  /** URL of the API to fetch previous/next video data.
+   *
+   * Requirements
+   * - Method: GET
+   * - Query parameters :
+   *   - `videoId` (string) — identifier for the video (required)
+   *
+   * Returns (application/json 200):
+   * {
+   *   "previousVideo": {
+   *     "id": "previous-video-id",
+   *     "src": "https://example.com/previous-video.mp4",
+   *     "videoPagePath": "/path/to/previous-video-page",
+   *     "title": "Previous Video Title",
+   *     "channelName": "Example Channel",
+   *     "thumbnail": "https://example.com/previous-video-thumbnail.jpg",
+   *   },
+   *   "nextVideo": {
+   *     "id": "next-video-id",
+   *     "src": "https://example.com/next-video.mp4",
+   *     "videoPagePath": "/path/to/next-video-page",
+   *     "title": "Next Video Title",
+   *     "channelName": "Example Channel",
+   *     "thumbnail": "https://example.com/next-video-thumbnail.jpg",
+   *   },
+   * }
+   *
+   * Note:
+   *  - `previousVideo` and `nextVideo` are optional.
+   *  - `src`, `videoPagePath` and `id` are required for each video. Rest all fields are optional.
+   *
+   */
+  previousNextVideoApi: string;
+
+  /** Current video ID. Used to fetch the next/previous video. */
+  currentVideoId: string;
+
+  /** Whether to automatically play the next video when the current video ends. */
+  autoPlayNextVideo: boolean;
+};
+
 /**
  * Data for open_mini_player message.
  * Sent from embedded app to myzPAX to open a mini player.
@@ -76,14 +118,20 @@ export type OpenMiniPlayerMessageData = VideoInfo & {
   /** Path of the video page. Used for redirecting the user to video page when clicked on full screen button of mini player. */
   videoPagePath: string;
 
-  /** Playback rate options for the mini player. */
+  /** Playback rate options for the video. */
   playbackRateOptions: number[];
 
-  /** Title of the mini player. */
+  /** Title of the video. */
   title?: string;
 
-  /** Subtitle of the mini player. */
-  subtitle?: string;
+  /** Channel name. */
+  channelName?: string;
+
+  /** Thumbnail URL. */
+  thumbnail?: string;
+
+  /** Configuration for previous/next video navigation */
+  previousNextVideoSettings?: PreviousNextVideoSettings;
 };
 
 /**
