@@ -218,6 +218,12 @@ export type ResponseMessage = {
    * Sent by myzPAX when mini player's full screen button is clicked.
    */
   mini_player_fullscreen: MiniPlayerFullscreenMessageData;
+
+  /**
+   * Sent by myzPAX when device_type is requested by the embedded app.
+   * Contains the device type of the user's device based on the screen width.
+   */
+  device_type: 'mobile' | 'desktop' | 'tablet';
 };
 
 /**
@@ -289,6 +295,11 @@ export type RequestMessage = {
    * Ask myzPAX to open sign up popup
    */
   open_signup_popup: void;
+
+  /**
+   * Request myzPAX for the device type
+   */
+  device_type: void;
 };
 
 // --------------------------------
@@ -301,7 +312,7 @@ export type ZpaxMessage<T, D> = {
 };
 
 export type ResponseMessageHandler<T extends keyof ResponseMessage> = (
-  data: ZpaxMessage<T, ResponseMessage[T]>
+  data: ZpaxMessage<T, ResponseMessage[T]>,
 ) => void;
 
 // ----------------------------
@@ -350,7 +361,7 @@ export const sendZpaxMessage = <T extends keyof RequestMessage>(
   }
 
   targets.forEach((target) =>
-    window.parent.postMessage({ type: messageType, data }, target)
+    window.parent.postMessage({ type: messageType, data }, target),
   );
 };
 
@@ -370,7 +381,7 @@ export const sendZpaxMessage = <T extends keyof RequestMessage>(
  */
 export const addZpaxMessageListener = <T extends keyof ResponseMessage>(
   messageType: T,
-  handler: ResponseMessageHandler<T>
+  handler: ResponseMessageHandler<T>,
 ) => {
   if (!targets.length) {
     console.error('No targets set. Use setTargets() to set them.');
@@ -378,7 +389,7 @@ export const addZpaxMessageListener = <T extends keyof ResponseMessage>(
   }
 
   const handlerWrapper = (
-    event: MessageEvent<ZpaxMessage<T, ResponseMessage[T]>>
+    event: MessageEvent<ZpaxMessage<T, ResponseMessage[T]>>,
   ) => {
     if (!targets.includes(event.origin) || event.data.type !== messageType)
       return;
