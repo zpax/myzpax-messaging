@@ -17,6 +17,11 @@ type OpenFullViewMessageData = {
    * Used to restore app state or navigate to a specific page after receiving the auth code.
    */
   state?: string;
+
+  /**
+   * Whether to cancel the open_full_view request from myzPAX.
+   */
+  cancel?: boolean;
 };
 ```
 

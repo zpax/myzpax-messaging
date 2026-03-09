@@ -37,6 +37,11 @@ export type OpenFullViewMessageData = {
    * Used to restore app state or navigate to a specific page after receiving the auth code.
    */
   state?: string;
+
+  /**
+   * Whether to cancel the open_full_view request from myzPAX.
+   */
+  cancel?: boolean;
 };
 
 /**
@@ -171,6 +176,22 @@ export type MiniPlayerFullscreenMessageData = VideoInfo & {
   videoPagePath: string;
 };
 
+/**
+ * Data for open_full_view request message sent from myzPAX to the embedded app.
+ * Send from myzPAX to the embedded app when myzPAX wants to open the embedded app in full view.
+ */
+export type OpenFullViewRequestMessageData = {
+  /**
+   * This will be the identifier which will help the embedded app determine where the request is coming from
+   * It will be a string consisting the name of view in which spaces are replaced with '-'
+   * and to this '-' separated name string '^<view-type>' is added as suffix
+   *
+   * Example: If the title of view is 'PDPM Rate Simulator' and the view is a tile
+   * then the resulting viewId will be 'PDPM-Rate-Simulator^tile_view'
+   */
+  viewId: string;
+};
+
 // ----------------------------
 // Message Type Definitions
 // ----------------------------
@@ -224,6 +245,13 @@ export type ResponseMessage = {
    * Contains the device type of the user's device based on the screen width.
    */
   device_type: 'mobile' | 'desktop' | 'tablet';
+
+  /**
+   * Sent by myzpax when user requests to open the app's full view.
+   * Example: By clicking the 'Open Full App' button present on the tile header.
+   * Embedded app need to respond with `sendZpaxMessage('open_full_view')` after performing any required initialization actions.
+   */
+  open_full_view: string;
 };
 
 /**
