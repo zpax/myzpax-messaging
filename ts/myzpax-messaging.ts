@@ -181,8 +181,15 @@ export type MiniPlayerFullscreenMessageData = VideoInfo & {
  * Send from myzPAX to the embedded app when myzPAX wants to open the embedded app in full view.
  */
 export type OpenFullViewRequestMessageData = {
-  /** The source of the message. */
-  from: 'tile';
+  /**
+   * This will be the identifier which will help the embedded app determine where the request is coming from
+   * It will be a string consisting the name of view in which spaces are replaced with '-'
+   * and to this '-' separated name string '^<view-type>' is added as suffix
+   *
+   * Example: If the title of view is 'PDPM Rate Simulator' and the view is a tile
+   * then the resulting viewId will be 'PDPM-Rate-Simulator^tile_view'
+   */
+  viewId: string;
 };
 
 // ----------------------------
