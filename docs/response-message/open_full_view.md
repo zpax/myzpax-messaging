@@ -62,6 +62,6 @@ addZpaxMessageListener('open_full_view', (message) => {
 
 ## Related
 
-- [`open_full_view`](../request-message/open_full_view.md) - message sent in response to this request message.
+- [`open_full_view`](../request-message/open_full_view.md) - message that need to be sent in response to this request message.
 - [`addZpaxMessageListener`](../functions/addZpaxMessageListener.md)
 - [`sendZpaxMessage`](../functions/sendZpaxMessage.md)
