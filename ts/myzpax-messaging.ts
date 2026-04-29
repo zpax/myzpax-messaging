@@ -22,13 +22,13 @@
  */
 export type LockAppMessageData = {
   /** What should happen after re-authentication. */
-  afterReAuthAction?: 'reload' | 'none';
+  afterReAuthAction?: "reload" | "none";
 
   /** Whether to remove the iframe after locking. */
   removeIframe?: boolean;
 
   /** Type of lock: 'timeout' or 'manual'. */
-  lockType: 'timeout' | 'manual';
+  lockType: "timeout" | "manual";
 };
 
 export type OpenFullViewMessageData = {
@@ -158,7 +158,7 @@ export type StateChangeMessageData = {
   state: string | null;
 
   /** Direction of the navigation. */
-  action: 'back' | 'forward';
+  action: "back" | "forward";
 };
 
 /**
@@ -174,6 +174,23 @@ export type MiniPlayerClosedMessageData = VideoInfo;
 export type MiniPlayerFullscreenMessageData = VideoInfo & {
   /** Path of the video page. Used for redirecting the user to video page when clicked on full screen button of mini player. */
   videoPagePath: string;
+};
+
+/**
+ * Data for location message.
+ * Sent from myzPAX to the embedded app in response to a `sendZpaxMessage('location')` call.
+ * Note: Latitude and longitude values are approximate and may not be precise. They are intended to provide a general location for the user, but should not be used for exact geolocation purposes.
+ */
+export type UserLocation = {
+  /**
+   * Latitude of the user's location.
+   */
+  latitude: number;
+
+  /**
+   * Longitude of the user's location.
+   */
+  longitude: number;
 };
 
 /**
@@ -244,7 +261,7 @@ export type ResponseMessage = {
    * Sent by myzPAX when device_type is requested by the embedded app.
    * Contains the device type of the user's device based on the screen width.
    */
-  device_type: 'mobile' | 'desktop' | 'tablet';
+  device_type: "mobile" | "desktop" | "tablet";
 
   /**
    * Sent by myzpax when user requests to open the app's full view.
@@ -252,6 +269,12 @@ export type ResponseMessage = {
    * Embedded app need to respond with `sendZpaxMessage('open_full_view')` after performing any required initialization actions.
    */
   open_full_view: string;
+
+  /**
+   * Sent by myzPAX in response to a `sendZpaxMessage('location')` call.
+   * Contains the approximate latitude and longitude of the user's location.
+   */
+  location: UserLocation;
 };
 
 /**
@@ -312,7 +335,7 @@ export type RequestMessage = {
   /**
    * Ask myzPAX to close the mini player
    */
-  close_mini_player: 'close' | 'fullscreen';
+  close_mini_player: "close" | "fullscreen";
 
   /**
    * Ask myzPAX to open login login
@@ -328,6 +351,11 @@ export type RequestMessage = {
    * Request myzPAX for the device type
    */
   device_type: void;
+
+  /**
+   * Request myzPAX for the user location
+   */
+  location: void;
 };
 
 // --------------------------------
@@ -340,7 +368,7 @@ export type ZpaxMessage<T, D> = {
 };
 
 export type ResponseMessageHandler<T extends keyof ResponseMessage> = (
-  data: ZpaxMessage<T, ResponseMessage[T]>,
+  data: ZpaxMessage<T, ResponseMessage[T]>
 ) => void;
 
 // ----------------------------
@@ -384,12 +412,12 @@ export const sendZpaxMessage = <T extends keyof RequestMessage>(
   ...[data]: RequestMessage[T] extends void ? [] : [RequestMessage[T]]
 ) => {
   if (!targets.length) {
-    console.error('No targets set. Use setTargets() to set them.');
+    console.error("No targets set. Use setTargets() to set them.");
     return;
   }
 
   targets.forEach((target) =>
-    window.parent.postMessage({ type: messageType, data }, target),
+    window.parent.postMessage({ type: messageType, data }, target)
   );
 };
 
@@ -409,21 +437,21 @@ export const sendZpaxMessage = <T extends keyof RequestMessage>(
  */
 export const addZpaxMessageListener = <T extends keyof ResponseMessage>(
   messageType: T,
-  handler: ResponseMessageHandler<T>,
+  handler: ResponseMessageHandler<T>
 ) => {
   if (!targets.length) {
-    console.error('No targets set. Use setTargets() to set them.');
+    console.error("No targets set. Use setTargets() to set them.");
     return () => {};
   }
 
   const handlerWrapper = (
-    event: MessageEvent<ZpaxMessage<T, ResponseMessage[T]>>,
+    event: MessageEvent<ZpaxMessage<T, ResponseMessage[T]>>
   ) => {
     if (!targets.includes(event.origin) || event.data.type !== messageType)
       return;
     handler(event.data);
   };
 
-  window.addEventListener('message', handlerWrapper);
-  return () => window.removeEventListener('message', handlerWrapper);
+  window.addEventListener("message", handlerWrapper);
+  return () => window.removeEventListener("message", handlerWrapper);
 };
