@@ -78,6 +78,16 @@
  *         volume: number // the volume at which the mini player was closed (0-1)
  *       }
  *
+ * - notification_navigate
+ *     Description:
+ *       Sent by myzPAX when the user clicks a notification whose target app is already open
+ *       in full view. If the target app is not currently open, myzPAX hard-navigates the
+ *       browser to the deepLink instead of sending this message.
+ *     Expected Action:
+ *       The embedded app should parse/route to the correct in-app location based on the deepLink.
+ *     Payload:
+ *       string // the notification's deepLink URL
+ *
  * ----------------------------------------
  * Messages sent FROM embedded app TO myzPAX
  * ----------------------------------------
