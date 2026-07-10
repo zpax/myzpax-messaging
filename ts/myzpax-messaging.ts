@@ -271,6 +271,16 @@ export type ResponseMessage = {
   open_full_view: string;
 
   /**
+   * Sent by myzPAX when the user clicks a notification whose target app is already open in full view.
+   * Contains the notification's deepLink URL. The embedded app is responsible for parsing/routing
+   * to the correct in-app location based on this URL.
+   *
+   * If the target app is not currently open, myzPAX hard-navigates the browser to the deepLink
+   * instead of sending this message.
+   */
+  notification_navigate: string;
+
+  /**
    * Sent by myzPAX in response to a `sendZpaxMessage('location')` call.
    * Contains the approximate latitude and longitude of the user's location.
    */

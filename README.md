@@ -122,6 +122,8 @@ addZpaxMessageListener('re_authenticated', () => {
 
 [`open_full_view`](./docs/response-message/open_full_view.md)
 
+[`notification_navigate`](./docs/response-message/notification_navigate.md)
+
 [`state_change`](./docs/response-message/state_change.md)
 
 ## Examples
