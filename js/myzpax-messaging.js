@@ -186,6 +186,15 @@
  *       Request myzPAX to redirect to the sign up page.
  *     Payload:
  *       none
+ *
+ * - hide_manual_lock
+ *     Description:
+ *       Show or hide the manual lock button present on the tile header.
+ *       Acts as a toggle: send true to hide the manual lock button, send false to show it again.
+ *       For example, hide the lock button while the app is on its marketing page and show it
+ *       again once the user leaves the marketing page.
+ *     Payload:
+ *       boolean // required - true to hide the manual lock button, false to show it
  */
 
 // ----------------------------

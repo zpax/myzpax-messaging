@@ -88,6 +88,8 @@ addZpaxMessageListener('re_authenticated', () => {
 
 [`lock_app`](./docs/request-message/lock_app.md)
 
+[`hide_manual_lock`](./docs/request-message/hide_manual_lock.md)
+
 [`login_status`](./docs/request-message/login_status.md)
 
 [`open_contact_form`](./docs/request-message/open_contact_form.md)
