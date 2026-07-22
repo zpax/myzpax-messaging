@@ -366,6 +366,15 @@ export type RequestMessage = {
    * Request myzPAX for the user location
    */
   location: void;
+
+  /**
+   * Show or hide the manual lock button present on the tile header.
+   * Acts as a toggle: send `true` to hide the manual lock button, send `false` to show it again.
+   *
+   * Example: Hide the lock button while the embedded app is showing its marketing page,
+   * then show it again once the user leaves the marketing page.
+   */
+  hide_manual_lock: boolean;
 };
 
 // --------------------------------
